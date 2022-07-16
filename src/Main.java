@@ -12,21 +12,21 @@ public class Main {
                 new Cats(
                         "Peach",
                         7,
-                        (int) (Math.random() * 60) + 20,
-                        (int) (Math.random() * 60) + 20,
-                        (int) (Math.random() * 60) + 20),
+                        getRandomNumber(),
+                        getRandomNumber(),
+                        getRandomNumber()),
                 new Cats(
                         "Jasper",
                         3,
-                        (int) (Math.random() * 60) + 20,
-                        (int) (Math.random() * 60) + 20,
-                        (int) (Math.random() * 60) + 20),
+                        getRandomNumber(),
+                        getRandomNumber(),
+                        getRandomNumber()),
                 new Cats(
                         "Poppy",
                         10,
-                        (int) (Math.random() * 60) + 20,
-                        (int) (Math.random() * 60) + 20,
-                        (int) (Math.random() * 60) + 20)
+                        getRandomNumber(),
+                        getRandomNumber(),
+                        getRandomNumber())
         );
         cats = cats.stream()
                 .sorted(Collections.reverseOrder(Comparator.comparing(Cats::getAverage)))
@@ -104,5 +104,9 @@ public class Main {
         }
 
         return str;
+    }
+
+    private static int getRandomNumber() {
+        return (int) (Math.random() * 60) + 20;
     }
 }
