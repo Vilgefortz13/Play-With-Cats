@@ -1,7 +1,6 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
+
+import static java.util.stream.Collectors.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -29,6 +28,9 @@ public class Main {
                         (int) (Math.random() * 60) + 20,
                         (int) (Math.random() * 60) + 20)
         );
+        cats = cats.stream()
+                .sorted(Collections.reverseOrder(Comparator.comparing(Cats::getAverage)))
+                .collect(toList());
 
         printCats(cats);
     }
@@ -44,6 +46,6 @@ public class Main {
             count++;
             System.out.println(cat);
         }
-
+        System.out.println("---+----------+------+---------+------+--------+---------+");
     }
 }
