@@ -9,20 +9,40 @@ public class Cats {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public Integer getAge() {
         return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
     }
 
     public Integer getSatiety() {
         return satiety;
     }
 
+    public void setSatiety(Integer satiety) {
+        this.satiety = satiety;
+    }
+
     public Integer getMood() {
         return mood;
     }
 
+    public void setMood(Integer mood) {
+        this.mood = mood;
+    }
+
     public Integer getHealth() {
         return health;
+    }
+
+    public void setHealth(Integer health) {
+        this.health = health;
     }
 
     @Override
