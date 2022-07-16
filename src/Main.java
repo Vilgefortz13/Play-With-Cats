@@ -61,6 +61,9 @@ public class Main {
     }
 
     public static void printCats(List<Cats> cats) {
+        cats = cats.stream()
+                .sorted(Collections.reverseOrder(Comparator.comparing(Cats::getAverage)))
+                .collect(toList());
         System.out.println("""
                 ---+----------+------+---------+------+--------+---------+
                  # |   name   |  age | satiety | mood | health | average |
