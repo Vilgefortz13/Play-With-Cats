@@ -3,31 +3,32 @@ import java.util.*;
 import static java.util.stream.Collectors.*;
 
 public class Main {
+
+    static List<Cats> cats = Arrays.asList(
+            new Cats(
+                    "Peach",
+                    7,
+                    getRandomNumber(),
+                    getRandomNumber(),
+                    getRandomNumber()),
+            new Cats(
+                    "Jasper",
+                    3,
+                    getRandomNumber(),
+                    getRandomNumber(),
+                    getRandomNumber()),
+            new Cats(
+                    "Poppy",
+                    10,
+                    getRandomNumber(),
+                    getRandomNumber(),
+                    getRandomNumber())
+    );
     public static void main(String[] args) {
         run();
     }
 
     private static void run() {
-        List<Cats> cats = Arrays.asList(
-                new Cats(
-                        "Peach",
-                        7,
-                        getRandomNumber(),
-                        getRandomNumber(),
-                        getRandomNumber()),
-                new Cats(
-                        "Jasper",
-                        3,
-                        getRandomNumber(),
-                        getRandomNumber(),
-                        getRandomNumber()),
-                new Cats(
-                        "Poppy",
-                        10,
-                        getRandomNumber(),
-                        getRandomNumber(),
-                        getRandomNumber())
-        );
         cats = cats.stream()
                 .sorted(Collections.reverseOrder(Comparator.comparing(Cats::getAverage)))
                 .collect(toList());
@@ -62,18 +63,21 @@ public class Main {
             }
             case 2 -> {
                 System.out.print("Enter cat's number: ");
-                int number = getNumber(1, cats.size()) - 1;
-                System.out.println("You fed " + cats.get(number).getName());
+                int index = getNumber(1, cats.size()) - 1;
+                cats.get(index).setActivity(new Feeding());
+                cats.get(index).catsAction(index);
             }
             case 3 -> {
                 System.out.print("Enter cat's number: ");
-                int number = getNumber(1, cats.size()) - 1;
-                System.out.println("You played with " + cats.get(number).getName());
+                int index = getNumber(1, cats.size()) - 1;
+                cats.get(index).setActivity(new Playing());
+                cats.get(index).catsAction(index);
             }
             case 4 -> {
                 System.out.print("Enter cat's number: ");
-                int number = getNumber(1, cats.size()) - 1;
-                System.out.println("You took " + cats.get(number).getName() + " to the vet");
+                int index = getNumber(1, cats.size()) - 1;
+                cats.get(index).setActivity(new Healing());
+                cats.get(index).catsAction(index);
             }
             default -> System.out.println();
         }

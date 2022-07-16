@@ -5,6 +5,11 @@ public class Cats {
     private Integer mood;
     private Integer health;
     private Integer average;
+    private Action action;
+
+    public Cats() {
+
+    }
 
     public Cats(String name, Integer age, Integer satiety, Integer mood, Integer health) {
         this.name = name;
@@ -61,6 +66,18 @@ public class Cats {
 
     public void setAverage(Integer average) {
         this.average = average;
+    }
+
+    public void setActivity(Action action) {
+        this.action = action;
+    }
+
+    public Action getAction() {
+        return action;
+    }
+
+    public void catsAction(int index) {
+        action.action(index);
     }
 
     @Override
