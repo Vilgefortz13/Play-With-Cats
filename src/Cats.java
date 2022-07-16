@@ -5,6 +5,14 @@ public class Cats {
     private Integer mood;
     private Integer health;
 
+    public Cats(String name, Integer age, Integer satiety, Integer mood, Integer health) {
+        this.name = name;
+        this.age = age;
+        this.satiety = satiety;
+        this.mood = mood;
+        this.health = health;
+    }
+
     public String getName() {
         return name;
     }
