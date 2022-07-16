@@ -52,9 +52,9 @@ public class Main {
                 int age = getNumber(1, 18);
                 cats.add(
                         new Cats(name, age,
-                                (int) (Math.random() * 60) + 20,
-                                (int) (Math.random() * 60) + 20,
-                                (int) (Math.random() * 60) + 20)
+                                getRandomNumber(),
+                                getRandomNumber(),
+                                getRandomNumber())
                 );
             }
         }
