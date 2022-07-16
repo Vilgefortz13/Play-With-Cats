@@ -66,6 +66,6 @@ public class Cats {
     @Override
     public String toString() {
         return String.format(" | %8s | %4d | %7d | %4d | %6d | %7d |",
-                name, age, satiety, mood, health, average);
+                name, age, satiety, mood, health, getAverage());
     }
 }

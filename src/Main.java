@@ -39,7 +39,25 @@ public class Main {
                 >\040""");
         int action = getNumber(1, 4);
 
-        System.out.println(action);
+        doAction(cats, action);
+        printCats(cats);
+    }
+
+    private static void doAction(List<Cats> cats, int action) {
+        switch (action) {
+            case 1 -> {
+                System.out.print("Enter cat's name: ");
+                String name = getString(new Scanner(System.in));
+                System.out.print("Enter cat's age (1 - 18): ");
+                int age = getNumber(1, 18);
+                cats.add(
+                        new Cats(name, age,
+                                (int) (Math.random() * 60) + 20,
+                                (int) (Math.random() * 60) + 20,
+                                (int) (Math.random() * 60) + 20)
+                );
+            }
+        }
     }
 
     public static void printCats(List<Cats> cats) {
@@ -71,5 +89,20 @@ public class Main {
                 System.out.print("Invalid value. Try again: ");
             }
         }
+    }
+
+    private static String getString(Scanner sc) {
+        String str = "";
+        while (sc.hasNextLine()) {
+            try {
+                str += sc.next("[a-zA-Z]+");
+                break;
+            } catch (InputMismatchException e) {
+                System.out.print("Invalid value. Try again: ");
+                sc.nextLine();
+            }
+        }
+
+        return str;
     }
 }
