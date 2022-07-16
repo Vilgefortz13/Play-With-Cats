@@ -33,6 +33,13 @@ public class Main {
                 .collect(toList());
 
         printCats(cats);
+        System.out.print("""
+                \nEnter the action:
+                  add the cat - 1;
+                >\040""");
+        int action = getNumber(1, 4);
+
+        System.out.println(action);
     }
 
     public static void printCats(List<Cats> cats) {
@@ -47,5 +54,22 @@ public class Main {
             System.out.println(cat);
         }
         System.out.println("---+----------+------+---------+------+--------+---------+");
+    }
+
+    private static int getNumber(int startValue, int endValue) {
+        int value;
+        while (true) {
+            try {
+                value = new Scanner(System.in).nextInt();
+                while (value < startValue || value > endValue) {
+                    System.out.print("Invalid value! Enter from " + startValue + " to " + endValue + ": ");
+                    value = new Scanner(System.in).nextInt();
+                }
+
+                return value;
+            } catch (InputMismatchException e) {
+                System.out.print("Invalid value. Try again: ");
+            }
+        }
     }
 }
