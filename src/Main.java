@@ -30,8 +30,20 @@ public class Main {
                         (int) (Math.random() * 60) + 20)
         );
 
+        printCats(cats);
+    }
 
-        System.out.println(cats);
+    public static void printCats(List<Cats> cats) {
+        System.out.println("""
+                ---+----------+------+---------+------+--------+---------+
+                 # |   name   |  age | satiety | mood | health | average |
+                ---+----------+------+---------+------+--------+---------+""");
+        int count = 1;
+        for (Cats cat : cats) {
+            System.out.printf(" %d", count);
+            count++;
+            System.out.println(cat);
+        }
 
     }
 }
