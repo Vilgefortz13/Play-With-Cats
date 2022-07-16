@@ -55,6 +55,7 @@ public class Cats {
     }
 
     public Integer getAverage() {
+        average = (health + mood + satiety) / 3;
         return average;
     }
 
@@ -64,7 +65,6 @@ public class Cats {
 
     @Override
     public String toString() {
-        average = (health + mood + satiety) / 3;
         return String.format(" | %8s | %4d | %7d | %4d | %6d | %7d |",
                 name, age, satiety, mood, health, average);
     }
