@@ -4,6 +4,7 @@ public class Cats {
     private Integer satiety;
     private Integer mood;
     private Integer health;
+    private Integer average;
 
     public Cats(String name, Integer age, Integer satiety, Integer mood, Integer health) {
         this.name = name;
@@ -53,9 +54,17 @@ public class Cats {
         this.health = health;
     }
 
+    public Integer getAverage() {
+        return average;
+    }
+
+    public void setAverage(Integer average) {
+        this.average = average;
+    }
+
     @Override
     public String toString() {
-        int average = (health + mood + satiety) / 3;
+        average = (health + mood + satiety) / 3;
         return String.format(" | %8s | %4d | %7d | %4d | %6d | %7d |",
                 name, age, satiety, mood, health, average);
     }
