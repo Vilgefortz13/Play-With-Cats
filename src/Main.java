@@ -36,6 +36,9 @@ public class Main {
         System.out.print("""
                 \nEnter the action:
                   add the cat - 1;
+                  feed - 2;
+                  play - 3;
+                  take to the vet - 4;
                 >\040""");
         int action = getNumber(1, 4);
 
@@ -57,6 +60,22 @@ public class Main {
                                 getRandomNumber())
                 );
             }
+            case 2 -> {
+                System.out.print("Enter cat's number: ");
+                int number = getNumber(1, cats.size()) - 1;
+                System.out.println("You fed " + cats.get(number).getName());
+            }
+            case 3 -> {
+                System.out.print("Enter cat's number: ");
+                int number = getNumber(1, cats.size()) - 1;
+                System.out.println("You played with " + cats.get(number).getName());
+            }
+            case 4 -> {
+                System.out.print("Enter cat's number: ");
+                int number = getNumber(1, cats.size()) - 1;
+                System.out.println("You took " + cats.get(number).getName() + " to the vet");
+            }
+            default -> System.out.println();
         }
     }
 
@@ -66,7 +85,7 @@ public class Main {
                 .collect(toList());
         System.out.println("""
                 ---+----------+------+---------+------+--------+---------+
-                 # |   name   |  age | satiety | mood | health | average |
+                 # |     name |  age | satiety | mood | health | average |
                 ---+----------+------+---------+------+--------+---------+""");
         int count = 1;
         for (Cats cat : cats) {
